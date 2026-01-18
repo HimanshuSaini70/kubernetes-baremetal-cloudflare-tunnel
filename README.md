@@ -385,3 +385,45 @@ DevOps | Kubernetes | Cloud | Linux
 ```
 
 ```
+## ⚡ Automated Installation using Shell Scripts
+
+To make the cluster setup **repeatable, fast, and error-free**, all installation steps are automated using shell scripts.
+
+### 🔹 Run on ALL nodes
+```bash
+chmod +x scripts/*.sh
+
+./scripts/01-prerequisites.sh
+./scripts/02-install-containerd.sh
+./scripts/03-install-kubernetes.sh
+````
+
+### 🔹 Run on Control Plane Node
+
+```bash
+./scripts/04-init-control-plane.sh
+./scripts/06-install-calico.sh
+```
+
+### 🔹 Run on Worker Node
+
+```bash
+./scripts/05-join-worker.sh "<PASTE kubeadm join command here>"
+```
+
+### 🔹 Verify Cluster
+
+```bash
+./scripts/verify-cluster.sh
+```
+
+✅ This automation ensures:
+
+* Consistent installs
+* Faster recovery after reboot
+* Minimal manual errors
+* DevOps best practices
+
+```
+
+
