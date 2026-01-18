@@ -363,6 +363,7 @@ kubectl get pods -A
 ## 🧑‍💻 Author
 
 **Himanshu Saini**
+
 DevOps | Kubernetes | Cloud | Linux
 
 🌐 Portfolio: [https://portfolio.himanshusaini.online](https://portfolio.himanshusaini.online)
