@@ -12,7 +12,7 @@ Production-grade bare-metal Kubernetes cluster built on laptops using kubeadm an
 * ✅ Recruiter / interview ready
 
 
-
+```
 # Kubernetes Bare-Metal Cluster with Tailscale, Calico & Cloudflare Zero Trust
 
 > **Production-grade bare-metal Kubernetes cluster built on laptops using kubeadm, with node-to-node networking over Tailscale VPN, Calico CNI for pod networking, and secure internet exposure via Cloudflare Tunnel (Zero Trust) — no public IPs and no open inbound ports.**
