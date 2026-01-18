@@ -1,0 +1,12 @@
+#!/bin/bash
+set -e
+
+if [ "$#" -ne 1 ]; then
+  echo "Usage: ./05-join-worker.sh '<kubeadm join command>'"
+  exit 1
+fi
+
+echo "[INFO] Joining worker node..."
+sudo $1
+
+echo "[SUCCESS] Worker joined the cluster"
