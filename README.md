@@ -358,18 +358,6 @@ kubectl get pods -A
 * Real-world Kubernetes troubleshooting
 * On-prem / edge Kubernetes architecture
 
----
-
-## 🧑‍💻 Author
-
-**Himanshu Saini**
-
-DevOps | Kubernetes | Cloud | Linux
-
-🌐 Portfolio: [https://portfolio.himanshusaini.online](https://portfolio.himanshusaini.online)
-🐙 GitHub: [https://github.com/HimanshuSaini70](https://github.com/HimanshuSaini70)
-
----
 
 ## 🚀 Future Enhancements
 
@@ -425,6 +413,79 @@ chmod +x scripts/*.sh
 * Minimal manual errors
 * DevOps best practices
 
+
+---
+
+## 📊 Grafana Dashboard Setup (Quick Steps)
+
+### 1️⃣ Add Helm Repo
+
+```bash
+helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
+helm repo update
 ```
+
+### 2️⃣ Create Monitoring Namespace
+
+```bash
+kubectl create namespace monitoring
+```
+
+### 3️⃣ Install Grafana (kube-prometheus-stack)
+
+```bash
+helm install kube-prometheus prometheus-community/kube-prometheus-stack \
+  --namespace monitoring
+```
+
+## 🔐 Create Read-Only Grafana User
+
+### 4️⃣ Get Admin Password
+
+```bash
+kubectl -n monitoring get secret kube-prometheus-stack-grafana \
+  -o jsonpath="{.data.admin-password}" | base64 -d
+```
+
+Login to Grafana as `admin`.
+
+---
+
+### 5️⃣ Create Read-Only User
+
+Grafana UI → **Administration → Users → New User**
+
+```
+Username: readonly
+Password: Welcome@54321
+Role    : Viewer
+```
+
+---
+
+## 🌍 Public Access (Read-Only)
+
+```
+Grafana URL : https://grafana.himanshusaini.online
+User        : readonly
+Password    : Welcome@54321
+```
+
+---
+
+This keeps dashboards **public, safe, and production-ready**.
+
+---
+
+## 🧑‍💻 Author
+
+**Himanshu Saini**
+
+DevOps | Kubernetes | Cloud | Linux
+
+🌐 Portfolio: [https://portfolio.himanshusaini.online](https://portfolio.himanshusaini.online)
+🐙 GitHub: [https://github.com/HimanshuSaini70](https://github.com/HimanshuSaini70)
+
+---
 
 
